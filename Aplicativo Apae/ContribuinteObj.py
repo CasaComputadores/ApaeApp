@@ -1,80 +1,77 @@
 class Contribuintes:
     
-    def __init__(self, nome: str, endereco: str, numero:int, bairro:str, celular:str, valor:float, tipo:bool, ativo:bool) -> None:
-        self.nome = nome
-        self.endereco = endereco
-        self.numero = numero
-        self.bairro = bairro
-        self.celular = celular
-        self.valor =  valor
-        self.tipo = tipo
-        self.ativo = ativo
+    def __init__(self, nome, endereco, numero, bairro, celular, valor, tipo, ativo) -> None:
+        self._nome = nome
+        self._endereco = endereco
+        self._numero = numero
+        self._bairro = bairro
+        self._celular = celular
+        self._valor = valor
+        self._tipo = tipo
+        self._ativo = ativo
     
     @property
     def nome(self):
-        return self.nome
+        return self._nome
     
     @nome.setter
     def nome(self, nome):
-        self.nome = nome
+        self._nome = nome
     
-
     @property
     def endereco(self):
-        return self.endereco
+        return self._endereco
     
     @endereco.setter
     def endereco(self, endereco):
-        self.endereco = endereco
+        self._endereco = endereco
 
     @property
     def numero(self):
-        return self.numero
+        return self._numero
     
     @numero.setter
     def numero(self, numero):
-        self.numero = numero
+        self._numero = numero
 
     @property
     def bairro(self):
-        return self.bairro
+        return self._bairro
     
     @bairro.setter
     def bairro(self, bairro):
-        self.bairro = bairro
+        self._bairro = bairro
 
     @property
     def celular(self):
-        return self.celular
+        return self._celular
     
     @celular.setter
     def celular(self, celular):
-        self.celular = celular
+        self._celular = celular
 
     @property
     def valor(self):
-        return self.valor
+        return self._valor
     
     @valor.setter
     def valor(self, valor):
-        self.valor = valor
+        self._valor = valor
 
     @property
     def tipo(self):
-        return self.tipo
+        return self._tipo
     
     @tipo.setter
     def tipo(self, tipo):
-        self.tipo = tipo
+        self._tipo = tipo
 
     @property
     def ativo(self):
-        return self.ativo
+        return self._ativo
     
     @ativo.setter
     def ativo(self, ativo):
-        self.ativo = ativo
-
-
+        self._ativo = ativo
 
     

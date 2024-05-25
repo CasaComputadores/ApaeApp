@@ -12,9 +12,6 @@ tab.pack(expand=1, fill="both", padx = 10, pady = 10)
 def cadastrar_contribuinte():
     Cadastrar.pop()
 
-tab.add("Arquivo")
-#
-
 tab.add("Contribuintes")
 #
 cadastrar = CTkButton(master=tab.tab("Contribuintes"), text="Cadastrar", command=cadastrar_contribuinte)
@@ -27,7 +24,10 @@ exlcuir = CTkButton(master=tab.tab("Contribuintes"), text="Excluir")
 exlcuir.place(relx=0.5, rely=0.4, anchor = "center")
 
 consultar = CTkButton(master=tab.tab("Contribuintes"), text="Consultar Todos")
-consultar.place(relx=0.5, rely=0.6, anchor = "center")
+consultar.place(relx=0.5, rely=0.55, anchor = "center")
+
+sair = CTkButton(master=tab.tab("Contribuintes"), text="Sair", fg_color="#F94449")
+sair.place(relx=0.5, rely=0.9, anchor = "center")
 
 tab.add("Recibos")
 #

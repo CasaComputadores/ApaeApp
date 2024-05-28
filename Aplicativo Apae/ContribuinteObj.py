@@ -1,6 +1,6 @@
 class Contribuintes:
     
-    def __init__(self, nome, endereco, numero, bairro, celular, valor, tipo, ativo) -> None:
+    def __init__(self, nome, endereco, numero, bairro, celular, valor, tipo, ativo, data) -> None:
         self._nome = nome
         self._endereco = endereco
         self._numero = numero
@@ -9,6 +9,7 @@ class Contribuintes:
         self._valor = valor
         self._tipo = tipo
         self._ativo = ativo
+        self._data = data
     
     @property
     def nome(self):
@@ -73,5 +74,13 @@ class Contribuintes:
     @ativo.setter
     def ativo(self, ativo):
         self._ativo = ativo
+
+    @property
+    def data(self):
+        return self._data
+    
+    @data.setter
+    def data(self, data):
+        self._data = data
 
     

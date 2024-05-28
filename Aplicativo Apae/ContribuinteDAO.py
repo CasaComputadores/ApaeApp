@@ -69,18 +69,23 @@ class ContribuinteConexao:
         results = []
         for row in self.cursor.fetchall():
             results.append(dict(zip(columns, row)))
-        
-        print(f'"resultado"{results}')
-        
 
+        return results
+    
+    def selecionar_todos(self):
+        self.cursor.execute("SELECT * FROM contribuintes")
+        columns = [column[0] for column in self.cursor.description]
+        results = []
+        for row in self.cursor.fetchall():
+            results.append(dict(zip(columns, row)))
 
-
+        return results
 
 
 if __name__ == "__main__":
     contribuinte1 = Contribuintes("joao", "rua1", 12, "centro", "(32)999-999", 15.40, True, True)
     conexao = ContribuinteConexao()
-    conexao.selecionar_contribuinte(None,"joao")
+    print(conexao.selecionar_todos())
     conexao.fechar_conexao()
 
         

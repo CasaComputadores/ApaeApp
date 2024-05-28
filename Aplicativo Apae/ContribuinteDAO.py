@@ -16,7 +16,7 @@ class ContribuinteConexao:
 
         
         self.cursor.execute("""
-            INSERT INTO contribuintes (nome, endereco, numero, bairro, celular, valor, tipo, ativo) 
+            INSERT INTO contribuintes (nome, endereco, numero, bairro, celular, valor, tipo, ativo, data) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             contribuinte.nome, 
@@ -26,14 +26,15 @@ class ContribuinteConexao:
             contribuinte.celular, 
             contribuinte.valor, 
             contribuinte.tipo, 
-            contribuinte.ativo
+            contribuinte.ativo,
+            contribuinte.data
         ))
         self.banco.commit()
 
     
     def editar_contribuinte(self, codigo, contribuinte):
         self.cursor.execute("""
-            UPDATE contribuintes SET nome = ?, endereco = ?, numero = ?, bairro = ?, celular = ?, valor = ?, tipo = ?, ativo = ? WHERE id = ?
+            UPDATE contribuintes SET nome = ?, endereco = ?, numero = ?, bairro = ?, celular = ?, valor = ?, tipo = ?, ativo = ?, data = ? WHERE id = ?
         """, (
             contribuinte.nome, 
             contribuinte.endereco, 
@@ -43,6 +44,7 @@ class ContribuinteConexao:
             contribuinte.valor, 
             contribuinte.tipo, 
             contribuinte.ativo,
+            contribuinte.data,
             codigo
         ))
         self.banco.commit()
@@ -83,9 +85,7 @@ class ContribuinteConexao:
 
 
 if __name__ == "__main__":
-    contribuinte1 = Contribuintes("joao", "rua1", 12, "centro", "(32)999-999", 15.40, True, True)
     conexao = ContribuinteConexao()
-    print(conexao.selecionar_todos())
     conexao.fechar_conexao()
 
         

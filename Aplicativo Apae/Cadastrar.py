@@ -1,6 +1,6 @@
 from customtkinter import *
 
-def pop():
+def interfaceCadastro():
     contribuintes = CTk()
     contribuintes.title("Cadastrar cliente")
     contribuintes.geometry("500x300+600+250")

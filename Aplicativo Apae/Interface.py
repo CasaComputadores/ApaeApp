@@ -12,7 +12,7 @@ tab.pack(expand=1, fill="x", padx = 30, pady = 10, anchor="n")
 
 #Event Handling
 def cadastrar_contribuinte():
-    Cadastrar.pop()
+    Cadastrar.interfaceCadastro()
 
 tab.add("Contribuintes")
 #

@@ -3,13 +3,13 @@ from customtkinter import *
 def pop():
     contribuintes = CTk()
     contribuintes.title("Cadastrar cliente")
-    contribuintes.geometry("500x300+600+250")
+    contribuintes.geometry("500x400+600+250")
 
     frame = CTkFrame(master=contribuintes)
     frame.pack(expand=True, fill="both", padx=10, pady=10)
 
     # Configuração das linhas e colunas para uma distribuição proporcional
-    for i in range(7):
+    for i in range(8):
         frame.grid_rowconfigure(i, weight=1)  # Configurações das linhas para expandir
     for j in range(5):
         frame.grid_columnconfigure(j, weight=1)  # Configurações das colunas para expandir
@@ -39,31 +39,36 @@ def pop():
     entry_celular = CTkEntry(master=frame)
     entry_celular.grid(row=3, column=1, padx=(0,6), pady=5, sticky="ew", columnspan=2)
 
+    label_data = CTkLabel(master=frame, text="Data:", text_color="#0F0F0F")
+    label_data.grid(row=3, column=3, padx=(6, 0), pady=5, sticky="w")
+    entry_data = CTkEntry(master=frame, width=100)
+    entry_data.grid(row=3, column=4, padx=(0,6), pady=5, sticky="ew")
+
     label_valor = CTkLabel(master=frame, text="Valor:", text_color="#0F0F0F")
-    label_valor.grid(row=3, column=3, padx=(6, 0), pady=5, sticky="w")
+    label_valor.grid(row=4, column=0, padx=(10, 0), pady=5, sticky="w")
     entry_valor = CTkEntry(master=frame, width=100)
-    entry_valor.grid(row=3, column=4, padx=(0,6), pady=5, sticky="ew")
+    entry_valor.grid(row=4, column=1, padx=(0,6), pady=5, sticky="ew")
 
     label_tipo = CTkLabel(master=frame, text="Tipo:", text_color="#0F0F0F")
-    label_tipo.grid(row=4, column=0, padx=(10, 0), pady=5, sticky="w")
+    label_tipo.grid(row=5, column=0, padx=(10, 0), pady=5, sticky="w")
     tipo = StringVar(value="PF")
     radioPF = CTkRadioButton(master=frame, text="PF", variable=tipo, value="PF", fg_color="#5bb450")
-    radioPF.grid(row=4, column=1, pady=5, sticky="w")
+    radioPF.grid(row=5, column=1, pady=5, sticky="w")
     radioPJ = CTkRadioButton(master=frame, text="PJ", variable=tipo, value="PJ", fg_color="#5bb450")
-    radioPJ.grid(row=4, column=2, pady=5, sticky="w")
+    radioPJ.grid(row=5, column=2, pady=5, sticky="w")
 
     label_ativo = CTkLabel(master=frame, text="Ativo:", text_color="#0F0F0F")
-    label_ativo.grid(row=5, column=0, padx=(10, 0), pady=5, sticky="w")
+    label_ativo.grid(row=6, column=0, padx=(10, 0), pady=5, sticky="w")
     ativo = StringVar(value="Sim")
     radioSim = CTkRadioButton(master=frame, text="Sim", variable=ativo, value="Sim", fg_color="#5bb450")
-    radioSim.grid(row=5, column=1, pady=5, sticky="w")
+    radioSim.grid(row=6, column=1, pady=5, sticky="w")
     radioNao = CTkRadioButton(master=frame, text="Não", variable=ativo, value="Não", fg_color="#5bb450")
-    radioNao.grid(row=5, column=2, pady=5, sticky="w")
+    radioNao.grid(row=6, column=2, pady=5, sticky="w")
 
     cadastrarContribuinte = CTkButton(master=frame, text="Cadastrar", fg_color="#5bb450", hover_color="#46923c")
-    cadastrarContribuinte.grid(row=6, column=1, pady=10, sticky="ew", columnspan=2)
+    cadastrarContribuinte.grid(row=7, column=1, pady=10, sticky="ew", columnspan=2)
 
     limpar = CTkButton(master=frame, text="Limpar", fg_color="#F90000", hover_color="#0f0f0f")
-    limpar.grid(row=6, column=3, padx=10 ,pady=10, columnspan=2)
+    limpar.grid(row=7, column=3, padx=10 ,pady=10, columnspan=2)
 
     contribuintes.mainloop()

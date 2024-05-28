@@ -4,7 +4,7 @@ import Cadastrar
 
 app = CTk()
 app.title("APAE")
-app.geometry("450x350+600+200")
+app.geometry("400x375+600+200")
 customtkinter.set_appearance_mode("light")
 #customtkinter.set_default_color_theme("green")
 
@@ -30,7 +30,7 @@ consultar = CTkButton(master=tab.tab("Contribuintes"), text="Consultar Todos", f
 consultar.place(relx=0.5, rely=0.8, anchor = "center")
 
 sair = CTkButton(master=app, text="Sair", fg_color="#F90000", hover_color="#0f0f0f", command=app.quit)
-sair.place(relx=0.5, rely=0.9, anchor = "center")
+sair.place(relx=0.5, rely=0.85, anchor = "center")
 
 tab.add("Recibos")
 #

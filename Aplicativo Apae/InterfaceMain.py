@@ -1,6 +1,6 @@
 import customtkinter
 from customtkinter import *
-import Cadastrar
+import ContribuinteInterface
 
 app = CTk()
 app.title("APAE")
@@ -13,17 +13,23 @@ tab.pack(expand=1, fill="x", padx = 30, pady = 10, anchor="n")
 
 #Event Handling
 def cadastrar_contribuinte():
-    Cadastrar.interfaceCadastro()
+    ContribuinteInterface.interfaceCadastro()
+
+def alterar_contribuinte():
+    ContribuinteInterface.interfaceAlterar()
+
+def excluir_contribuinte():
+    ContribuinteInterface.interfaceExcluir()
 
 tab.add("Contribuintes")
-#
+
 cadastrar = CTkButton(master=tab.tab("Contribuintes"), text="Cadastrar", command=cadastrar_contribuinte, fg_color="#5bb450", hover_color="#46923c")
 cadastrar.place(relx=0.5, rely=0.1, anchor = "center")
 
-alterar = CTkButton(master=tab.tab("Contribuintes"), text="Alterar", fg_color="#5bb450", hover_color="#46923c")
+alterar = CTkButton(master=tab.tab("Contribuintes"), text="Alterar", command=alterar_contribuinte, fg_color="#5bb450", hover_color="#46923c")
 alterar.place(relx=0.5, rely=0.3, anchor = "center")
 
-excluir = CTkButton(master=tab.tab("Contribuintes"), text="Excluir", fg_color="#5bb450", hover_color="#46923c")
+excluir = CTkButton(master=tab.tab("Contribuintes"), text="Excluir", command=excluir_contribuinte, fg_color="#5bb450", hover_color="#46923c")
 excluir.place(relx=0.5, rely=0.5, anchor = "center")
 
 consultar = CTkButton(master=tab.tab("Contribuintes"), text="Consultar Todos", fg_color="#5bb450", hover_color="#46923c")

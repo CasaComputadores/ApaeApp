@@ -3,16 +3,15 @@ from customtkinter import *
 def interfaceCadastro():
     contribuintes = CTk()
     contribuintes.title("Cadastrar cliente")
-    contribuintes.geometry("500x400+600+250")
+    contribuintes.geometry("500x400+550+200")
 
     frame = CTkFrame(master=contribuintes)
     frame.pack(expand=True, fill="both", padx=10, pady=10)
 
-    # Configuração das linhas e colunas para uma distribuição proporcional
     for i in range(8):
-        frame.grid_rowconfigure(i, weight=1)  # Configurações das linhas para expandir
+        frame.grid_rowconfigure(i, weight=1)
     for j in range(5):
-        frame.grid_columnconfigure(j, weight=1)  # Configurações das colunas para expandir
+        frame.grid_columnconfigure(j, weight=1)
 
     label_nome = CTkLabel(master=frame, text="Nome:", text_color="#0F0F0F")
     label_nome.grid(row=0, column=0, padx=(10, 0), pady=5, sticky="w")
@@ -72,3 +71,43 @@ def interfaceCadastro():
     limpar.grid(row=7, column=3, padx=10 ,pady=10, columnspan=2)
 
     contribuintes.mainloop()
+
+def interfaceAlterar():
+    alterar = CTk()
+    alterar.title("Alterar Contribuinte")
+    alterar.geometry("300x175+660+250")
+
+    frame = CTkFrame(master=alterar)
+    frame.pack(expand=True, fill="both", padx=10, pady=10)
+
+    label_id = CTkLabel(master=frame, text="Informe o ID do contribuinte:", text_color="#0F0F0F")
+    label_id.place(relx=0.1, rely=0.1, anchor="nw")
+    entry_nome = CTkEntry(master=frame, width=225)
+    entry_nome.place(relx=0.1, rely=0.4, anchor="w")
+    
+    def alterar_contribuinte():
+        alterar.destroy()
+        interfaceCadastro()
+
+    buscar = CTkButton(master=frame, text="Buscar", command=alterar_contribuinte, fg_color="#5bb450", hover_color="#46923c")
+    buscar.place(relx=0.5, rely=0.8, anchor = "center")
+    
+    alterar.mainloop()
+
+def interfaceExcluir():
+    excluir = CTk()
+    excluir.title("Deletar Contribuinte")
+    excluir.geometry("300x175+660+250")
+
+    frame = CTkFrame(master=excluir)
+    frame.pack(expand=True, fill="both", padx=10, pady=10)
+
+    label_id = CTkLabel(master=frame, text="Informe o ID do contribuinte:", text_color="#0F0F0F")
+    label_id.place(relx=0.1, rely=0.1, anchor="nw")
+    entry_nome = CTkEntry(master=frame, width=225)
+    entry_nome.place(relx=0.1, rely=0.4, anchor="w")
+
+    buscar = CTkButton(master=frame, text="Deletar", fg_color="#F90000", hover_color="#0f0f0f")
+    buscar.place(relx=0.5, rely=0.8, anchor = "center")
+    
+    excluir.mainloop()

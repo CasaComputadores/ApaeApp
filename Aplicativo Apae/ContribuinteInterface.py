@@ -111,3 +111,19 @@ def interfaceExcluir():
     buscar.place(relx=0.5, rely=0.8, anchor = "center")
     
     excluir.mainloop()
+
+def interfaceConsultar():
+    consultar = CTk()
+    consultar.title("Deletar Contribuinte")
+    consultar.geometry("400x500+600+200")
+
+    frame = CTkScrollableFrame(master=consultar)
+    frame.pack(expand=True, fill="both", padx=10, pady=(50,10))
+
+    label_id = CTkLabel(master=consultar, text="ID", text_color="#0F0F0F")
+    label_id.place(relx=0.1, rely=0.03, anchor="nw")
+
+    label_nome = CTkLabel(master=consultar, text="Nome", text_color="#0F0F0F")
+    label_nome.place(relx=0.4, rely=0.03, anchor="n")
+
+    consultar.mainloop()

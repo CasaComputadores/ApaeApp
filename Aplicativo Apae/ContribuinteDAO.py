@@ -1,36 +1,35 @@
-import sqlite3
-from ContribuinteObj import Contribuintes
+from Dao import *
+from ContribuinteObj import *
 
 # Criando a classe de SQL para manipular Contribuintes
-class ContribuinteConexao:
+class ContribuinteConexao (Conexao):
+    
     def __init__(self) -> None:
-        self.banco = sqlite3.connect('banco_apae.db')
-        self.cursor = self.banco.cursor()
-
-   
-    def fechar_conexao(self) -> None:
-        self.banco.close()
-
+         super().__init__()
+    
     #cria um novo contribuinte
     def inserir_contribuinte(self, contribuinte):
+        query = "INSERT INTO doadores(ativo, tipo, nome, endereco, bairro, telefone, valor, numero) VALUES (?,?,?,?,?,?,?,?);"
 
+        if self._conn is None or not self._conn.is_connected():
+            print("Não há conexão estabelecida.")
+            return None
+        #try:
+        self.cursor.execute(query, (
+            contribuinte.tipo,
+            contribuinte.ativo,
+            contribuinte.nome,
+            contribuinte.endereco,
+            contribuinte.bairro,
+            contribuinte.celular,
+            contribuinte.valor,
+            contribuinte.numero ))
+        self._conn.commit()
+        #except mysql.connector.Error as err:
+        #   print(f"Erro ao executar a query: {err}")
         
-        self.cursor.execute("""
-            INSERT INTO contribuintes (nome, endereco, numero, bairro, celular, valor, tipo, ativo) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            contribuinte.nome, 
-            contribuinte.endereco, 
-            contribuinte.numero, 
-            contribuinte.bairro, 
-            contribuinte.celular, 
-            contribuinte.valor, 
-            contribuinte.tipo, 
-            contribuinte.ativo
-        ))
-        self.banco.commit()
 
-    
+    '''
     def editar_contribuinte(self, codigo, contribuinte):
         self.cursor.execute("""
             UPDATE contribuintes SET nome = ?, endereco = ?, numero = ?, bairro = ?, celular = ?, valor = ?, tipo = ?, ativo = ? WHERE id = ?
@@ -80,12 +79,12 @@ class ContribuinteConexao:
             results.append(dict(zip(columns, row)))
 
         return results
-
+'''
 
 if __name__ == "__main__":
-    contribuinte1 = Contribuintes("joao", "rua1", 12, "centro", "(32)999-999", 15.40, True, True)
+    contribuinte1 = Contribuintes(1, "PF", "daibo", "rua", "rua", "não tenho", 2.45, 2)
     conexao = ContribuinteConexao()
-    print(conexao.selecionar_todos())
-    conexao.fechar_conexao()
+    conexao.conectar()
+    conexao.inserir_contribuinte(contribuinte1)
+    #conexao.fechar_conexao()
 
-        

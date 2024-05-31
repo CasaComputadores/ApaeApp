@@ -1,6 +1,6 @@
 class Contribuintes:
     
-    def __init__(self, nome, endereco, numero, bairro, celular, valor, tipo, ativo) -> None:
+    def __init__(self, ativo, tipo, nome, endereco, bairro, celular, valor, numero) -> None:
         self._nome = nome
         self._endereco = endereco
         self._numero = numero

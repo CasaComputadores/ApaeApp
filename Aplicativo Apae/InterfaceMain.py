@@ -28,6 +28,9 @@ def consultar_contribuintes():
 def imprimirReciboTodos():
     ReciboInterface.interfaceImprimirTodos()
 
+def darBaixaRecibo():
+    ReciboInterface.interfaceBaixaRecibo()
+
 tab.add("Contribuintes")
 #
 cadastrar = CTkButton(master=tab.tab("Contribuintes"), text="Cadastrar", command=cadastrar_contribuinte, fg_color="#5bb450", hover_color="#46923c", width=225)
@@ -44,7 +47,7 @@ consultar.place(relx=0.5, rely=0.45, anchor = "center")
 
 tab.add("Recibos")
 #
-baixaRecibo = CTkButton(master=tab.tab("Recibos"), text="Dar Baixa em Recibo", fg_color="#5bb450", hover_color="#46923c", width=225)
+baixaRecibo = CTkButton(master=tab.tab("Recibos"), text="Dar Baixa em Recibo", command=darBaixaRecibo ,fg_color="#5bb450", hover_color="#46923c", width=225)
 baixaRecibo.place(relx=0.5, rely=0.1, anchor = "center")
 
 gerarMes = CTkButton(master=tab.tab("Recibos"), text="Gerar Mês - Todos os Contribuintes", fg_color="#5bb450", hover_color="#46923c", width=225)
@@ -62,8 +65,10 @@ imprimirRecibosIndiviual.place(relx=0.5, rely=0.6, anchor = "center")
 excluirRecibo = CTkButton(master=tab.tab("Recibos"), text="Excluir Recibos", fg_color="#5bb450", hover_color="#46923c", width=225)
 excluirRecibo.place(relx=0.5, rely=0.75, anchor = "center")
 
-tab.add("Relatórios")
+tab.add("Relatorios")
 #
+relatorioMensal = CTkButton(master=tab.tab("Relatorios"), text="Relatório Mensal", fg_color="#5bb450", hover_color="#46923c", width=225)
+relatorioMensal.place(relx=0.5, rely=0.1, anchor = "center")
 
 tab.add("Sobre")
 #

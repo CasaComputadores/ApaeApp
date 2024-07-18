@@ -22,3 +22,21 @@ def interfaceImprimirTodos():
     buscar.place(relx=0.5, rely=0.75, anchor = "center")
     
     imprimirTodos.mainloop()
+
+def interfaceBaixaRecibo():
+    baixaRecibo = CTk()
+    baixaRecibo.title("Alterar Recibo")
+    baixaRecibo.geometry("350x125+630+350")
+
+    frame = CTkFrame(master=baixaRecibo)
+    frame.pack(expand=True, fill="both", padx=10, pady=10)
+
+    label_nRecibo = CTkLabel(master=frame, text="Número do Recibo:", text_color="#0F0F0F")
+    label_nRecibo.place(relx=0.05, rely=0.25, anchor="w")
+    entry_nRecibo = CTkEntry(master=frame, width=150)
+    entry_nRecibo.place(relx=0.9, rely=0.25, anchor="e")
+
+    buscar = CTkButton(master=frame, text="Buscar", fg_color="#5bb450", hover_color="#46923c")
+    buscar.place(relx=0.5, rely=0.75, anchor = "center")
+
+    baixaRecibo.mainloop()

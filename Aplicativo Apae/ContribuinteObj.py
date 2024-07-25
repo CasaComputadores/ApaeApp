@@ -1,6 +1,10 @@
 class Contribuintes:
     
+<<<<<<< HEAD
     def __init__(self, nome, endereco, numero, bairro, celular, valor, tipo, ativo, data) -> None:
+=======
+    def __init__(self, ativo, tipo, nome, endereco, bairro, celular, valor, numero) -> None:
+>>>>>>> DevMarcos
         self._nome = nome
         self._endereco = endereco
         self._numero = numero
@@ -11,70 +15,58 @@ class Contribuintes:
         self._ativo = ativo
         self._data = data
     
-    @property
-    def nome(self):
+    def get_nome(self):
         return self._nome
-    
-    @nome.setter
-    def nome(self, nome):
+
+    def set_nome(self, nome):
         self._nome = nome
-    
-    @property
-    def endereco(self):
+
+    def get_endereco(self):
         return self._endereco
     
-    @endereco.setter
-    def endereco(self, endereco):
+    def set_endereco(self, endereco):
         self._endereco = endereco
 
-    @property
-    def numero(self):
+    def get_numero(self):
         return self._numero
     
-    @numero.setter
-    def numero(self, numero):
+    def set_numero(self, numero):
         self._numero = numero
 
-    @property
-    def bairro(self):
+    def get_bairro(self):
         return self._bairro
     
-    @bairro.setter
-    def bairro(self, bairro):
+
+    def set_bairro(self, bairro):
         self._bairro = bairro
 
-    @property
-    def celular(self):
+    def get_celular(self):
         return self._celular
     
-    @celular.setter
-    def celular(self, celular):
+    def set_celular(self, celular):
         self._celular = celular
 
-    @property
-    def valor(self):
+    def get_valor(self):
         return self._valor
-    
-    @valor.setter
-    def valor(self, valor):
+   
+    def set_valor(self, valor):
         self._valor = valor
 
-    @property
-    def tipo(self):
+    def get_tipo(self):
         return self._tipo
     
-    @tipo.setter
-    def tipo(self, tipo):
+    def set_tipo(self, tipo):
         self._tipo = tipo
 
-    @property
-    def ativo(self):
+
+    def get_ativo(self):
         return self._ativo
     
-    @ativo.setter
-    def ativo(self, ativo):
+
+    def set_ativo(self, ativo):
         self._ativo = ativo
 
+<<<<<<< HEAD
     @property
     def data(self):
         return self._data
@@ -84,3 +76,8 @@ class Contribuintes:
         self._data = data
 
     
+=======
+if __name__ == "__main__":
+    contribuinte = Contribuintes(1, 'Fisico', 'Marcos', 'Rua Rosangela do Livramento Pinheiro', 'Centro', '32 998540320', '90,90', 30)
+    print(contribuinte.get_nome())
+>>>>>>> DevMarcos
